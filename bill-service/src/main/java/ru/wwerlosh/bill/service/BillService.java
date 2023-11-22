@@ -8,6 +8,7 @@ import ru.wwerlosh.bill.repository.BillRepository;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.List;
 
 @Service
 public class BillService {
@@ -34,8 +35,8 @@ public class BillService {
     public Bill updateBill(Long billId, Long accountId, BigDecimal amount,
                            Boolean isDefault, OffsetDateTime creationDate,
                            Boolean overdraft) {
-        Bill bill = new Bill(accountId, amount, isDefault, overdraft);
-        bill.setAccountId(billId);
+        Bill bill = new Bill(accountId, amount, isDefault, creationDate, overdraft);
+        bill.setBillId(billId);
         return billRepository.save(bill);
     }
 
@@ -43,5 +44,9 @@ public class BillService {
         Bill deletedBill = getBillById(billId);
         billRepository.deleteById(billId);
         return deletedBill;
+    }
+
+    public List<Bill> getBillsByAccountId(Long accountId) {
+        return billRepository.getBillsByAccountId(accountId);
     }
 }

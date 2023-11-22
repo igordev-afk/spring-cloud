@@ -23,7 +23,7 @@ public class BillRequest {
         return amount;
     }
 
-    public Boolean getDefault() {
+    public Boolean getIsDefault() {
         return isDefault;
     }
 

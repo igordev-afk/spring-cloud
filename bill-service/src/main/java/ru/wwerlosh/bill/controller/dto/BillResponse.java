@@ -32,7 +32,7 @@ public class BillResponse {
         billId = bill.getBillId();
         accountId = bill.getAccountId();
         amount = bill.getAmount();
-        isDefault = bill.getDefault();
+        isDefault = bill.getIsDefault();
         creationDate = bill.getCreationDate();
         overdraftEnabled = bill.getOverdraftEnabled();
     }
@@ -49,7 +49,7 @@ public class BillResponse {
         return amount;
     }
 
-    public Boolean getDefault() {
+    public Boolean getIsDefault() {
         return isDefault;
     }
 
